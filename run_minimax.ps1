@@ -39,11 +39,11 @@ $choice = Read-Host "Press 1 or 2 (then Enter, default is 1)"
 
 if ($choice -eq "2") {
     Write-Host "Starting Claw (New session)..."
-    claw repl --model "MiniMax-M2.7"
+    claw --model "MiniMax-M2.7"
 }
 else {
     Write-Host "Starting Claw (Resuming latest session)..."
-    claw repl --model "MiniMax-M2.7" --resume latest
+    claw --model "MiniMax-M2.7" --resume latest
 }
 
 Write-Host "Process exited."
