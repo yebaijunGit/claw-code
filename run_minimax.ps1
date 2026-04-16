@@ -25,26 +25,17 @@ else {
 
 # 3. Dir
 if ($target -and (Test-Path $target)) {
-    cd $target
+    Set-Location $target
     Write-Host "Changed working directory to: $target" -ForegroundColor Cyan
 }
 
-# 4. Prompt for Session Mode
-Write-Host "=============================" -ForegroundColor Yellow
-Write-Host "     Select Session Mode:"     -ForegroundColor Yellow
-Write-Host "1. RESUME the last session (Default)"
-Write-Host "2. Start a NEW session"
-Write-Host "=============================" -ForegroundColor Yellow
-$choice = Read-Host "Press 1 or 2 (then Enter, default is 1)"
+# 4. Tip
+Write-Host ""
+Write-Host "Tip: Type /resume latest to load your last session." -ForegroundColor DarkGray
+Write-Host ""
 
-if ($choice -eq "2") {
-    Write-Host "Starting Claw (New session)..."
-    claw --model "MiniMax-M2.7"
-}
-else {
-    Write-Host "Starting Claw (Resuming latest session)..."
-    claw --model "MiniMax-M2.7" --resume latest
-}
+# 5. Start (interactive mode - no --resume flag)
+claw --model "MiniMax-M2.7"
 
 Write-Host "Process exited."
 Read-Host "Press enter to close window"
