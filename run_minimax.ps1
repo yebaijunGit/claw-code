@@ -4,6 +4,7 @@ $ErrorActionPreference = "Stop"
 # 1. Init
 $secretsPath = Join-Path $PSScriptRoot "secrets.json"
 $env:OPENAI_BASE_URL = "https://api.minimaxi.com/v1"
+$env:OPENAI_API_KEY = $null
 $env:ANTHROPIC_API_KEY = $null
 $env:ANTHROPIC_BASE_URL = $null
 
@@ -19,13 +20,12 @@ else {
     exit
 }
 
-# 3. Stay in script directory for speed
+# 3. Stay in script directory
 cd $PSScriptRoot
-Write-Host "Running in Tool Directory for better speed."
 
-# 4. Start
-Write-Host "Starting Claw..."
-claw --model "openai/MiniMax-M2.7-highspeed"
+# 4. Start with a Non-Reasoning model (M2) to test speed
+Write-Host "Starting Claw with MiniMax-M2 (No Thinking lag)..."
+claw --model "openai/MiniMax-M2-highspeed"
 
 Write-Host "Process finished."
 Read-Host "Press Enter to close..."
