@@ -12,3 +12,5 @@ archive/
 status-help.txt
 
 run_minimax.ps1
+
+secrets.json
