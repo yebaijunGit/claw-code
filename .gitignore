@@ -10,3 +10,5 @@ archive/
 .claw/sessions/
 .clawhip/
 status-help.txt
+
+run_minimax.ps1
